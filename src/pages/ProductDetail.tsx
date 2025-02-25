@@ -49,13 +49,13 @@ interface DeletedProduct extends ProductDetail {
   deletedOn: string;
 }
 
-const fetchProductDetail = async (id: string | undefined) => {
+export const fetchProductDetail = async (id: string | undefined) => {
   return await axios.get<ProductDetail>(`/product/${id}`);
 };
 
 const deleteProduct = async (id: string | undefined) => {
-    return await axios.delete<DeletedProduct>(`product/${id}`);
-  }
+  return await axios.delete<DeletedProduct>(`product/${id}`);
+};
 
 const ProductDetailSkeleton = () => {
   return (
@@ -315,7 +315,7 @@ const ProductDetail = () => {
                         if (
                           confirm("Are you sure want to delete this product ? ")
                         ) {
-                        //   deleteProductMutation.mutate();
+                          //   deleteProductMutation.mutate();
                         }
                       }}
                     >
