@@ -1,6 +1,5 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import axios from "../Utils/AxiosInstance";
-import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 // Define the Recipe interface
@@ -43,7 +42,6 @@ const RecipeSkeleton = () => {
 
 // Main Recipe Component
 const Recipe = () => {
-  const navigate = useNavigate();
   const queryClient = useQueryClient();
   const [newRecipe, setNewRecipe] = useState({ name: "", ingredients: "", instructions: "" });
 

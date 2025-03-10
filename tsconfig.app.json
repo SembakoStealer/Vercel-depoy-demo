@@ -17,6 +17,8 @@
 
     /* Linting */
     "strict": true,
+    "allowJs": true,
+    "resolveJsonModule": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,

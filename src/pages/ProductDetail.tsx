@@ -44,18 +44,13 @@ interface Review {
   reviewerEmail: string;
 }
 
-interface DeletedProduct extends ProductDetail {
-  isDeleted: Boolean;
-  deletedOn: string;
-}
+
 
 export const fetchProductDetail = async (id: string | undefined) => {
   return await axios.get<ProductDetail>(`/product/${id}`);
 };
 
-const deleteProduct = async (id: string | undefined) => {
-  return await axios.delete<DeletedProduct>(`product/${id}`);
-};
+
 
 const ProductDetailSkeleton = () => {
   return (
