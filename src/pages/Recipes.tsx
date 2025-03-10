@@ -1,15 +1,12 @@
 import React, { useState } from 'react';
-import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
+import {useMutation} from '@tanstack/react-query';
 import RecipeForm from '../components/RecipeForm';
 import RecipeCard from '../components/RecipeCard';
 import RecipeSkeleton from '../components/RecipeSkeleton';
-import { recipeService } from '../services/recipeService';
 import { Recipe, NewRecipe } from '../types/recipe';
 
 const RecipePage: React.FC = () => {
-  const queryClient = useQueryClient();
   const [recipes, setRecipes] = useState<Recipe[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
   
   // Create mutation
   const createMutation = useMutation({
@@ -79,7 +76,7 @@ const RecipePage: React.FC = () => {
       />
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {isLoading ? (
+        {createMutation.isPending ? (
           // Show skeletons while loading
           Array.from({ length: 2 }).map((_, index) => (
             <RecipeSkeleton key={index} />
