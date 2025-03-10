@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Recipe } from '../types/recipe';
+import React, { useState } from "react";
+import { Recipe } from "../types/recipe";
 
 interface RecipeCardProps {
   recipe: Recipe;
@@ -8,18 +8,20 @@ interface RecipeCardProps {
   isDeleting: boolean;
 }
 
-const RecipeCard: React.FC<RecipeCardProps> = ({ 
-  recipe, 
-  onUpdate, 
-  onDelete, 
-  isDeleting 
+const RecipeCard: React.FC<RecipeCardProps> = ({
+  recipe,
+  onUpdate,
+  onDelete,
+  isDeleting,
 }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editedRecipe, setEditedRecipe] = useState(recipe);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
-    setEditedRecipe(prev => ({ ...prev, [name]: value }));
+    setEditedRecipe((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleUpdate = () => {
@@ -47,7 +49,7 @@ const RecipeCard: React.FC<RecipeCardProps> = ({
             className="w-full p-2 border border-gray-300 rounded-md"
           />
         </div>
-        
+
         <div className="mb-4">
           <label className="block text-sm font-medium text-gray-700 mb-1">
             Ingredients
@@ -60,7 +62,7 @@ const RecipeCard: React.FC<RecipeCardProps> = ({
             rows={3}
           />
         </div>
-        
+
         <div className="mb-4">
           <label className="block text-sm font-medium text-gray-700 mb-1">
             Instructions
@@ -73,7 +75,7 @@ const RecipeCard: React.FC<RecipeCardProps> = ({
             rows={4}
           />
         </div>
-        
+
         <div className="flex space-x-2">
           <button
             onClick={handleUpdate}
@@ -91,21 +93,25 @@ const RecipeCard: React.FC<RecipeCardProps> = ({
       </div>
     );
   }
-  
+
   return (
     <div className="bg-white rounded-lg shadow p-6">
       <h3 className="text-xl font-semibold mb-2">{recipe.name}</h3>
-      
+
       <div className="mb-3">
         <h4 className="font-medium text-gray-700">Ingredients:</h4>
-        <p className="text-gray-600 whitespace-pre-line">{recipe.ingredients}</p>
+        <p className="text-gray-600 whitespace-pre-line">
+          {recipe.ingredients}
+        </p>
       </div>
-      
+
       <div className="mb-4">
         <h4 className="font-medium text-gray-700">Instructions:</h4>
-        <p className="text-gray-600 whitespace-pre-line">{recipe.instructions}</p>
+        <p className="text-gray-600 whitespace-pre-line">
+          {recipe.instructions}
+        </p>
       </div>
-      
+
       <div className="flex space-x-2">
         <button
           onClick={() => setIsEditing(true)}
@@ -118,7 +124,7 @@ const RecipeCard: React.FC<RecipeCardProps> = ({
           disabled={isDeleting}
           className="bg-red-600 text-white py-1 px-3 rounded hover:bg-red-700 disabled:opacity-50"
         >
-          {isDeleting ? 'Deleting...' : 'Delete'}
+          {isDeleting ? "Deleting..." : "Delete"}
         </button>
       </div>
     </div>
