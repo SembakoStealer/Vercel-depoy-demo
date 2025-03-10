@@ -6,7 +6,6 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import RootLayout from "./layouts/RootLayout";
-import Carts from "./pages/Carts";
 import Post from "./pages/Post";
 import Product from "./pages/Product";
 import Recipes from "./pages/Recipes";
@@ -14,6 +13,8 @@ import ProductDetail from "./pages/ProductDetail";
 import Home from "./pages/Home";
 import AddProduct from "./pages/AddProduct";
 import EditProduct from "./pages/EditProduct";
+import Comments from "./pages/Comments";
+import Todos from "./pages/Todos";
 
 const queryClient = new QueryClient();
 
@@ -28,7 +29,8 @@ function App() {
         <Route path="product/:id/edit" element={<EditProduct />} />
         <Route path="recipes" element={<Recipes />} />
         <Route path="posts" element={<Post />} />
-        <Route path="carts" element={<Carts />} />
+        <Route path="comments" element={<Comments />} />
+        <Route path="todos" element={<Todos />} />
       </Route>
     )
   );
